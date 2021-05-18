@@ -1,7 +1,7 @@
 {
   "name": "express-authentication",
   "version": "1.0.0",
-  "description": "This is express authentication",
+  "description": "The app for Food Truck owners using Square POS. Text your customers when their order is ready.",
   "main": "server.js",
   "directories": {
     "test": "test"
