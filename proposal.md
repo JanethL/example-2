@@ -14,10 +14,14 @@ Requirements for the weekend
 
 Project #2
 
--Food Truck Owner (User) Logs into website 
+-Food Truck Owner (User) Logs into website
+
 -When an order is fullfilled inputs order ticket number 
+
 -When order is found with customer name and number, user presses button
+
 -Button sends SMS to customer alerting them that their order is complete
+
 -Customer reads text on their phone and approaches FoodTruck Owner to pick order up
 
 User Story: 
@@ -29,7 +33,9 @@ As a user, I want to send an sms text to that user
 
 -Technologies
 	-Utils SMS API on Autocode
+	
 	-Square Orders API
+	
 	-Database
 
 
