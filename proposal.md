@@ -26,9 +26,9 @@ Project #2
 
 User Story: 
 
-As a user, I want to go to a homepage to see a list of all customers who have placed an order
-As a user, I want to select a customer when the order is fulfilled
-As a user, I want to send an sms text to that user
+- As a user, I want to go to a homepage to see a list of all customers who have placed an order
+- As a user, I want to select a customer when the order is fulfilled
+- As a user, I want to send an sms text to that user
 
 
 -Technologies
