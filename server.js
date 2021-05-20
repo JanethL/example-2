@@ -6,6 +6,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const db = require('./models');
 
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
@@ -37,20 +38,30 @@ app.use((req, res, next) => {
   next();
 });
 
+//GET / -display customers and their info //main index of site
+//this GET route stays in server 
+app.get('/', isLoggedIn, (req, res) => { //make sure to add const isLoggedIn = require('./middleware/isLoggedIn');
+  db.customer.findAll({where:{userId: req.user.id}})
+  .then((customers) => {
+    res.render('main/index', {customers:customers})
+  }).catch((error) => {
+    console.log(error)
+    res.status(400).render('main/404')
+  })
+  }) 
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
-
-
+//Post 
+// bring in customers  controllers
 app.use('/auth', require('./controllers/auth'));
+app.use('/customers', require('./controllers/customers'))
 
-app.get('/profile', isLoggedIn, (req, res) => {
+
+app.get('/profile', isLoggedIn, (req, res) => {  //make sure to add const isLoggedIn = require('./middleware/isLoggedIn');
   const { id, name, email } = req.user.get(); 
   res.render('profile', { id, name, email });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9000;
 const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
 });
