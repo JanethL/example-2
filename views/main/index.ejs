@@ -29,7 +29,7 @@
                 <input type="submit" value="Send SMS">
               </form>
 
-              <form method="POST" action="customers/fullfilled/<%= index %>/?_method=PUT">
+              <form method="POST" action="customers/fullfilled/<%= customer.id %>/?_method=PUT">
                 <input type = hidden value ="<%=customer.ticket%>" name ="ticket"/>
                 <input type = hidden value ="<%=customer.firstName%>" name ="firstName"/>
                 <input type = hidden value ="<%=customer.lastName%>" name ="lastName"/>
