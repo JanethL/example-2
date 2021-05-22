@@ -13,7 +13,9 @@ router.post('/', (req, res) => {
         email: req.body.email,
         phone: req.body.phone,
         messageCount: req.body.messageCount,
-        userId: req.user.id
+        userId: req.user.id,
+        unfullfilled: 'true'
+
     })
     .then((post) => {
         res.redirect('/')
@@ -22,7 +24,19 @@ router.post('/', (req, res) => {
         res.status(400).render('main/404')
     })
 })
-// GET /customer/new - display form for creating a new customer
+
+// POST /customers - update the unfullfilled table to false 
+router.put('/fullfilled/:index', (req, res) => {
+    db.customer.update(req.body, {where:{id: req.params.index}})
+    .then((updatedCustomer) => {
+        console.log('this is your updated customer', updatedCustomer)
+        res.redirect('/')
+    })
+    .catch((error) => {
+        res.status(400).render('main/404')
+    })
+})
+
 
 router.get('/new', (req, res) => {
     db.customer.findAll()
@@ -40,7 +54,7 @@ router.get('/', (req, res) => {
     console.log('Here is user info', userInfo)
     let query = req.query.ticketFilter
     console.log('here is query:', query)
-    db.customer.findOne({
+    db.customer.findAll({
       where: { ticket: query, userId: userInfo.id},
     })
     .then((customer) => {
@@ -53,6 +67,23 @@ router.get('/', (req, res) => {
       res.status(400).render('main/404')
     })
   })
+//GET /fullfilled - display fullfilled customers
+
+  router.get('/fullfilled', (req, res) => {
+    let userInfo = req.user.get()
+    db.customer.findAll({
+        where: { unfullfilled: false, userId: userInfo.id},
+      })
+      .then((customer) => {
+        if (!customer) throw Error()
+        console.log(customer.unfullfilled)
+        res.render('customers/fullfilled', { customer: customer })
+      })
+      .catch((error) => {
+        console.log(error)
+        res.status(400).render('main/404')
+      })
+    })
 
 // POST route when SMS button is clicked
 
@@ -70,6 +101,7 @@ router.post('/sms/:number', (req, res) => {
     }
      sendSMS(req.params.number, 'Your order is ready.')
 })
+
 
 
 module.exports = router

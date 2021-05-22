@@ -16,6 +16,7 @@
 <ul>
     <li>
       <% customers.forEach((customer, index) => { %>
+        
           <h5>
            Ticket: <%= customer.ticket %></a>
            First Name: <%= customer.firstName %></a>
@@ -28,13 +29,19 @@
                 <input type="submit" value="Send SMS">
               </form>
 
-            <form method="POST" action="/customers/<%= index %>/?_method=DELETE">
-                <!-- is there a way to hide customers instead of deleting -->
-                <input type="submit" value="Order Complete"> 
+              <form method="POST" action="customers/fullfilled/<%= index %>/?_method=PUT">
+                <input type = hidden value ="<%=customer.ticket%>" name ="ticket"/>
+                <input type = hidden value ="<%=customer.firstName%>" name ="firstName"/>
+                <input type = hidden value ="<%=customer.lastName%>" name ="lastName"/>
+                <input type = hidden value ="<%=customer.phone%>" name ="phone"/>
+                <input type = hidden value ="<%=customer.email%>" name ="email"/>
+                <input type = hidden value ="<%=customer.messageCount%>" name ="messageCount"/>
+                <input type = hidden value ="false" name ="unfullfilled"/>
+                <input type="submit" value="Complete"> 
               </form>
       <% }) %>
 </li>
 </ul>
     </div>
   </div>
-  
+ 

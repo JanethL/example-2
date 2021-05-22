@@ -15,7 +15,7 @@ async function sendSMS(phone, message){
     });
     console.log(result)
 }
- sendSMS('12242756781', 'Your order is ready.') //When a button is pressed send SMS 
+ sendSMS(req.params.number, 'Your order is ready.') //When a button is pressed send SMS 
 
 
 module.exports = router

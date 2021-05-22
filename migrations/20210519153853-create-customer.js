@@ -37,6 +37,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+      unfullfilled {
+        type: Sequelize.STRING
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {

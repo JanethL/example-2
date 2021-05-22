@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.customer.belongsTo(models.user)
-      models.customer.hasMany(models.order);
     }
   };
   customer.init({
@@ -22,7 +21,9 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
     messageCount: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
+    unfullfilled: DataTypes.STRING
+
   }, {
     sequelize,
     modelName: 'customer',

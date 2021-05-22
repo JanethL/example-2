@@ -6,6 +6,8 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
+const methodOverride = require('method-override');
+const fs = require("fs");
 const db = require('./models');
 
 
@@ -18,6 +20,8 @@ app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(layouts);
+app.use(methodOverride('_method'));
+
 
 app.use(session({
   secret: SECRET_SESSION,
@@ -41,7 +45,10 @@ app.use((req, res, next) => {
 //GET / -display customers and their info //main index of site
 //this GET route stays in server 
 app.get('/', isLoggedIn, (req, res) => { //make sure to add const isLoggedIn = require('./middleware/isLoggedIn');
-  db.customer.findAll({where:{userId: req.user.id}})
+  db.customer.findAll({
+    where:{userId: req.user.id},
+    where:{unfullfilled: true}
+  })
   .then((customers) => {
     res.render('main/index', {customers:customers})
   }).catch((error) => {
