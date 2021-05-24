@@ -1,9 +1,52 @@
-<form action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Sign in & Sign up Form</title>
+  </head>
 
-  <label for="auth-password">Password</label>
-  <input id="auth-password" type="password" name="password">
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+            <h2 class="title">Sign in </h2>
 
-  <input type="submit" value="Log In">
-</form>
+
+            <form action="/auth/login" method="POST">
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+              <input id="auth-email" type="email" placeholder="Email" name="email">
+            </div>
+               <div class="input-field">
+                <i class="fas fa-lock"></i>
+              <input id="auth-password" type="password" placeholder="Password" name="password">
+            
+              <input type="submit" value="Log In" class="btn solid">
+            </form>
+
+            <p class="social-text">Tell your friends about us!</p>
+            <div class="social-media">
+              <a href="#" class="social-icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="#" class="social-icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </form>
+
+    <script src="app.js"></script>
+  </body>
+</html>

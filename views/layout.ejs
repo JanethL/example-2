@@ -7,27 +7,54 @@
     <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   </head>
-
   <body>
     <%- include('partials/alerts') %>
+
     <header>
-      <nav>
-        <% if (!currentUser) {%>
-          <li><a href="/auth/signup">Signup</a></li>
-          <li><a href="/auth/login">Login</a></li>
-      <% } else { %>
-          <li><a href="/">Orders</a></li>
-          <li><a href="/customers/fullfilled">Completed Orders</a></li>
-          <li><a href="/customers/new">Create New Order</a></li>
-          <li><a href="/profile">Profile</a></li>
-          <li><a href="/auth/logout">Logout</a></li>
 
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="https://img.icons8.com/color/452/food-truck.png" 
+            alt="" width="50" height="50" class="d-inline-block align-text-top">
+          </a>
+          <a class="navbar-brand" href="/">The Food Truck Texter</a>
 
+          <% if (!currentUser) {%>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/auth/signup">Signup</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/auth/login">Login</a>
+            </li>
+        <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/customers/new">New Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/customers/fullfilled">Completed Orders</a>
+          </li>
 
-      <% } %>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/auth/logout">Logout</a>
+          </li>  
+        <% } %>
+          </div>
+        </div>
       </nav>
+
+
+
     </header>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
+    crossorigin="anonymous"></script>
     <%- body %>
   </body>
 </html>

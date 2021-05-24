@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
 
 // POST /customers - update the unfullfilled table to false 
 router.put('/fullfilled/:index', (req, res) => {
-    console.log('this is your request body:',req.body)
+    console.log('this is your request body:', req.body)
     db.customer.update(req.body, {where:{id: req.params.index}})
     .then((updatedCustomer) => {
         console.log('this is your updated customer', updatedCustomer)

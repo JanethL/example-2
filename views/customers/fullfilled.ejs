@@ -13,9 +13,9 @@
                 <input type="submit" value="Send SMS">
               </form>
 
-            <form method="POST" action="/customers/fullfilled/<%= index %>/?_method=DELETE">
+            <form method="POST" action="/delete/<%= index %>/?_method=DELETE">
                 <!-- is there a way to hide customers instead of deleting -->
-                <input type="submit" value="Fullfilled"> 
+                <input type="submit" value="delete"> 
               </form>
       <% }) %>
 </li>
