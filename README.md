@@ -82,10 +82,24 @@ router.post('/sms/:number', (req, res) => {
 })
 ```
 
+When my `complete` button is selected I  kick off my POST route using a customer id and pass in the rest of customer information to update my database. This is where I set the `unfullfilled` field to `false.`  
 
 
-When the `complete` button is selected I query the db to find the specific users customers where unfullfilled is false
-meaning that their order has been fullfilled.
+
+
+```html
+              <form method="POST" action="customers/fullfilled/<%= customer.id %>/?_method=PUT">
+                <input type = hidden value ="<%=customer.ticket%>" name ="ticket"/>
+                <input type = hidden value ="<%=customer.firstName%>" name ="firstName"/>
+                <input type = hidden value ="<%=customer.lastName%>" name ="lastName"/>
+                <input type = hidden value ="<%=customer.phone%>" name ="phone"/>
+                <input type = hidden value ="<%=customer.email%>" name ="email"/>
+                <input type = hidden value ="<%=customer.messageCount%>" name ="messageCount"/>
+                <input type = hidden value ="false" name ="unfullfilled"/>
+                <input type="submit" value="Complete"> 
+              </form>
+```
+
 
 ```javascript 
 
@@ -134,18 +148,22 @@ router.get('/', (req, res) => {
   })
   ```
 
+
+
+
+
 ## Future Plans
 
 - [ ] Create a way for customers to reply
+- [ ] Handle numbers without a country code
 - [ ] Log message history with customers 
 - [ ] Automatically send a message to each customer two hours after they have picked up their food.
-- 
+
 
 
 ## Challenges 
 
 [ ] Trying to pull from Squares API for customer Data 
-[ ] Handle numbers without a country code
 [ ] 
 
 ## Initial Wireframes:

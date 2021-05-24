@@ -21,11 +21,12 @@ Project #2
 - Customer reads text on their phone and approaches FoodTruck Owner to pick order up
 
 User Story: 
-
+- As a user, I want to intake customer information when they place an order 
 - As a user, I want to go to a homepage to see a list of all customers who have placed an order
 - As a user, I want to select a customer when the order is fulfilled
 - As a user, I want to send an sms text to that user
-
+- As a user, I want to clear the list of customers once their order has been fullfilled
+- As a user I want to see a history of fullfilled users
 
 -Technologies
 	-Utils SMS API on Autocode
