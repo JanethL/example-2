@@ -2,6 +2,8 @@
 
 ## A better customer experience 
 
+![Food Truck Texting APP](https://i.ibb.co/9pzShDr/Text-Your-Customers.png)
+
 # User Story: 
 
 - As a user, I want to intake customer information when they place an order 
@@ -134,12 +136,17 @@ router.get('/', (req, res) => {
 
 ## Future Plans
 
-- [ ] 
-- [ ] Create a EDIT 
-- [ ] Create a way to view and respond/log messages 
+- [ ] Create a way for customers to reply
+- [ ] Log message history with customers 
+- [ ] Automatically send a message to each customer two hours after they have picked up their food.
+- 
 
 
+## Challenges 
 
+[ ] Trying to pull from Squares API for customer Data 
+[ ] Handle numbers without a country code
+[ ] 
 
 ## Initial Wireframes:
 ## Scratch Work:

@@ -100,7 +100,7 @@ router.post('/sms/:number', (req, res) => {
         });
         console.log(result)
     }
-     sendSMS(req.params.number, 'Your order is ready.')
+     sendSMS(req.params.number, 'Your order is ready! \n \n Thank you so much for stopping by. \n Our team would love your review on Yelp: https://www.yelp.com/biz/cocina-de-ledezma-valley-center' )
 })
 
 
