@@ -1,7 +1,24 @@
-# HOW TO INSTALL
-# HOW IT WORKS
-The following are the controllers found in `customers.js`    
+## THE FOOD TRUCK TEXTING APP 💬 🚚
 
+## A better customer experience 
+
+# User Story: 
+
+- As a user, I want to intake customer information when they place an order 
+- As a user, I want to go to a homepage to see a list of all customers who have placed an order
+- As a user, I want to select a customer when the order is fulfilled
+- As a user, I want to send an sms text to that user
+- As a user, I want to clear the list of customers once their order has been fullfilled
+- As a user I want to see a history of fullfilled users
+
+# SIGN UP TO TEST
+
+https://text-customers.herokuapp.com/ 
+
+
+# HOW IT WORKS
+The following are the controllers found in `customers.js`
+    
 ```javascript
 // controller POST ROUTE - create a new customer
 router.post('/', (req, res) => {
@@ -114,6 +131,14 @@ router.get('/', (req, res) => {
     })
   })
   ```
+
+## Future Plans
+
+- [ ] 
+- [ ] Create a EDIT 
+- [ ] Create a way to view and respond/log messages 
+
+
 
 
 ## Initial Wireframes:
