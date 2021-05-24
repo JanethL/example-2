@@ -36,11 +36,11 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
-      unfullfilled {
+      },
+      unfullfilled: {
         type: Sequelize.STRING
       }
-    });
+    })
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('customers');
