@@ -67,7 +67,7 @@ app.get('/profile', isLoggedIn, (req, res) => {  //make sure to add const isLogg
   res.render('profile', { id, name, email });
 });
 
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 9001;
 const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
 });

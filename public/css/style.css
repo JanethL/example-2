@@ -1,3 +1,15 @@
+li {
+	display: inline;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin: 20px;
+  }
+  
+  h1 {
+	color: black;
+  }
+ 
+  
 *{
 	padding: 0;
 	margin: 0;
@@ -6,7 +18,7 @@
 
 body{
     font-family: 'Poppins', sans-serif;
-    overflow: hidden;
+    overflow: hidden; 
 }
 
 .container{
@@ -14,7 +26,7 @@ body{
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap :7rem;
+    grid-gap:7rem;
     padding: 0 2rem;
 }
 
@@ -135,6 +147,10 @@ form{
 	font-family: 'poppins', sans-serif;
 }
 
+input {
+	border: none
+}
+
 .input-div.pass{
 	margin-bottom: 4px;
 }
@@ -204,25 +220,9 @@ a:hover{
 		display: none;
 	}
 
-	.wave{
-		display: none;
-	}
-
 	.login-content{
 		justify-content: center;
 	}
 } 
 
 
-
-li {
-  display: inline;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 20px;
-}
-
-h1 {
-  color: black;
-}
- 
